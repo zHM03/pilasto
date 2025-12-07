@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/CSS/style.css" />
+    <link rel="stylesheet" href="assets/CSS/menu.css" />
+    <link rel="stylesheet" href="assets/CSS/responsiv.css" />
+    <title>PilaTos Menü</title>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="nav-container">
+        <a href="index.html#home" class="logo">
+          <img src="assets/images/hero/logo.png" alt="logo" />
+          PilaTos
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html">Ana Sayfa</a>
+          <a href="menu.html">Menü</a>
+          <a href="index.html#about-us">Hakkımızda</a>
+          <a href="index.html#comments">Yorumlar</a>
+          <a href="index.html#contact">İletişim</a>
+        </nav>
+
+        <div class="mobile-menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ANA KATEGORİ GRID -->
+    <div class="menu-container">
+      <h1 class="menu-title">Menü</h1>
+      <div id="categoryScreen" class="category-grid">
+        <!-- Kategoriler JS ile doldurulacak -->
+      </div>
+    </div>
+
+    <!-- ÜRÜN LİSTESİ EKRANI -->
+    <div id="productScreen" class="product-list" style="display: none">
+      <div class="product-inner">
+        <div class="product-container">
+          <h2 id="categoryTitle" class="product-title"></h2>
+          <div id="productGrid" class="menu-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="back-btn" onclick="goBack()">← Geri</div>
+
+    <script src="assets/JavaScript/main.js"></script>
+    <script>
+      // ----------------------------
+      // JSON VERİLER
+      // ----------------------------
+
+      const categories = [
+        {
+          id: "pilav",
+          name: "Pilav Çeşitleri",
+          img: "1764968757_Screenshot 2025-12-06 000551.png",
+        },
+        {
+          id: "Yan Ürünler",
+          name: "Yan Ürünler",
+          img: "1764969111_citir-patates-77942f15-e1b3-42a1-9a7d-3ca5b9e18a8d.jpg",
+        },
+        {
+          id: "içecek",
+          name: "İçecek Çeşitleri",
+          img: "1764969012_11559514-54c9b8-680x454.jpg",
+        },
+      ];
+
+      const products = [
+        {
+          title: "Kıymalı Pilav",
+          desc: "Taze kıymalı nefis pilav.",
+          price: "220 TL",
+          category: "pilav",
+          img: "1764968894_Screenshot 2025-12-06 000807.png",
+        },
+        {
+          title: "Ayran",
+          desc: "Taze ve Soğuk.",
+          price: "25 TL",
+          category: "içecek",
+          img: "1764969039_11559514-54c9b8-680x454.jpg",
+        },
+        {
+          title: "Kızartılmış Patates",
+          desc: "Dışı çıtır, içi yumuşacık patates.",
+          price: "50 TL",
+          category: "Yan Ürünler",
+          img: "1764969143_citir-patates-77942f15-e1b3-42a1-9a7d-3ca5b9e18a8d.jpg",
+        },
+        {
+          title: "Tavuklu Pilav",
+          desc: "Doyurucu tavuklu pilav.",
+          price: "150",
+          category: "pilav",
+          img: "1764972624_Screenshot 2025-12-06 000551.png",
+        },
+      ];
+
+      // ----------------------------
+      // KATEGORİLERİ EKRANA BAS
+      // ----------------------------
+      const categoryScreen = document.getElementById("categoryScreen");
+      let htmlCat = "";
+
+      categories.forEach((c) => {
+        htmlCat += `
+                <div class="category-box" data-category="${c.id}">
+                    <img src="assets/images/menus/${c.img}">
+                    <span>${c.name}</span>
+                </div>
+            `;
+      });
+
+      categoryScreen.innerHTML = htmlCat;
+
+      let inProductScreen = false;
+      const backBtn = document.querySelector(".back-btn");
+      const productScreen = document.getElementById("productScreen");
+      const productGrid = document.getElementById("productGrid");
+
+      // ----------------------------
+      // KATEGORİ TIKLAMA
+      // ----------------------------
+      document.querySelectorAll(".category-box").forEach((box) => {
+        box.addEventListener("click", () => {
+          const category = box.dataset.category;
+
+          document.getElementById("categoryTitle").textContent =
+            box.textContent;
+
+          let html = "";
+          products.forEach((p) => {
+            if (p.category === category) {
+              html += `
+                            <div class="menu-card">
+                                <img src="assets/images/menus/${p.img}">
+                                <h3>${p.title}</h3>
+                                <p>${p.desc}</p>
+                                <strong>${p.price}</strong>
+                            </div>
+                        `;
+            }
+          });
+
+          productGrid.innerHTML = html;
+
+          openCategory();
+        });
+      });
+
+      function openCategory() {
+        inProductScreen = true;
+
+        categoryScreen.style.display = "none";
+        productScreen.style.display = "block";
+
+        window.scrollTo(0, 0);
+
+        backBtn.style.display = "block";
+
+        history.pushState({ page: "product" }, "", "");
+      }
+
+      function goBack() {
+        inProductScreen = false;
+
+        productScreen.style.display = "none";
+        categoryScreen.style.display = "grid";
+
+        window.scrollTo(0, 0);
+
+        backBtn.style.display = "none";
+      }
+
+      window.addEventListener("popstate", function () {
+        if (inProductScreen) {
+          goBack();
+          history.pushState({ page: "product" }, "", "");
+        }
+      });
+    </script>
+  </body>
+</html>

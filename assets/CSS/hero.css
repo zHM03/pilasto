@@ -1,0 +1,376 @@
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero-section {
+  padding: 0;
+}
+
+/* Sıralı container */
+.hero-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* SOL TARAF ================= */
+.hero-left {
+  background-color: var(--bg-secondary);
+  padding: 60px;
+  border-radius: 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Yazıları ortala */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-left h1 {
+  font-size: 3.8rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: var(--text-main);
+}
+
+.hero-left p {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  margin-bottom: 35px;
+  line-height: 1.55;
+}
+
+/* SAĞ TARAF ================= */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* BUTONLAR ================= */
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.hero-buttons a {
+  background-color: var(--text-accent);
+  text-decoration: none;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+.hero-buttons a:hover {
+  background-color: var(--text-accent);
+  transform: translateY(-3px);
+}
+
+/* =======================
+   MENÜ BÖLÜMÜ
+======================= */
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.menu-card {
+  background-color: var(--bg-secondary);
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-left: 6px solid var(--text-accent);
+  transition: transform 0.1s;
+}
+
+.menu-card span {
+  display: block;
+  text-align: right;
+  font-size: 1.5em;
+  color: var(--text-accent);
+  font-weight: bold;
+  margin-top: 0;
+  padding-top: 5px;
+  border-top: 1px dashed var(--bg-dark);
+}
+
+.menu-card:active {
+  transform: scale(0.98); /* Tıklama hissi */
+}
+
+.menu-card img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.menu-card h3 {
+  color: var(--text-main);
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+
+.menu-card p {
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  flex-grow: 1;
+  margin-bottom: 10px;
+}
+
+.menu-card strong {
+  display: block;
+  text-align: right;
+  font-size: 1.5em;
+  color: var(--text-accent);
+  font-weight: bold;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--bg-dark);
+}
+
+.menu-container a {
+  background-color: var(--text-accent);
+  text-decoration: none;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: 0.25s ease;
+  margin-top: 25px;
+  display: block; /* ← EKLE */
+  width: fit-content; /* buton genişliği */
+}
+
+.menu-container a:hover {
+  background-color: var(--text-accent);
+  transform: translateY(-3px);
+}
+
+/* =======================
+   ABOUT-US BÖLÜMÜ
+======================= */
+.about-container {
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-left {
+  flex: 1;
+}
+
+.about-left p {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  margin-bottom: 35px;
+  line-height: 1.55;
+}
+
+.about-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-right img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+/* =======================
+   COMMENTS BÖLÜMÜ
+======================= */
+
+.comments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* GRID */
+.comments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.comment-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+  transition: 0.2s ease;
+}
+
+.comment-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+/* HEADER */
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.comment-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+
+/* Stars */
+.stars {
+  color: #fbbc04;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.comment-date {
+  color: #777;
+  font-size: 13px;
+}
+
+/* Comment text */
+.comment-text {
+  line-height: 1.5;
+  font-size: 15px;
+  color: #444;
+}
+
+/* =======================
+   CONTACT BÖLÜMÜ
+======================= */
+
+.contact-container h1 {
+  margin-bottom: 40px;
+  color: var(--text-main);
+  background: var(--bg-main);
+}
+
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.contact-info {
+  flex: 1;
+  background: var(--bg-secondary);
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.contact-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.contact-info a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.contact-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.whatsapp-btn,
+.call-btn {
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+  color: white;
+}
+
+.call-btn {
+  background: var(--bg-dark);
+  color: white;
+}
+
+.whatsapp-btn:hover,
+.call-btn:hover {
+  opacity: 0.85;
+}
+
+.contact-map {
+  flex: 1;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.contact-map iframe {
+  border-radius: 18px;
+}
+
+.contact-map {
+  position: relative;
+  width: 100%;
+}
+
+.contact-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Haritanın üstünde görünmez katman */
+.map-click-layer {
+  display: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+}
